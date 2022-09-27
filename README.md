@@ -7,7 +7,7 @@ Examples of unit tests I ran were:
  -making sure that an address cannot mint a token while the public phase has not yet started
  -making sure that the amount of tokens minted by a single address does not exceed the limit of minting per address
  -setting a custom base URI
- -allowing an address to withdraw Eth from 
+ -allowing an address to withdraw Eth from the contract to their wallet
 
 ## Running the unit tests
 1-Open a terminal window and run the following line:
