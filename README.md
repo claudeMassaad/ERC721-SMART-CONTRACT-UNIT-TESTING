@@ -1,5 +1,4 @@
 ## Getting Started
-Description: 
 This repo contains a smart contract (Akyllers.sol) for the creation and transactions of Non Fungible Tokens between several addresses.
 I created 31 unit tests to try breaking some features of the smart contract in order to check that the contract is safe to deploy on the blockchain.
 Examples of unit tests I ran were:
