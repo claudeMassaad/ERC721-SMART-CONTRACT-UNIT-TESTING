@@ -75,6 +75,18 @@ contract("Akyllers", (accounts) => {
     });
   });
 
+  //test for supplyLimit compared to maxSupply
+  context("Owner sets supply limit", async () => {
+    it("should not allow owner to setWhitelistPhase with supply limit greater than max supply", async () => {
+      await contractInstance.setWhitelistPhase(rootHashBytes32, 3, 34, 2, {
+        from: alice,
+      });
+    });
+    it("should not able owner to set supply limit greater than max supply", async () => {
+      await contractInstance.setSupplyLimit(34, { from: alice });
+    });
+  });
+
   //test for presalemint proces
   context("Pre sale mint scenario", async () => {
     it("should able to presalemint", async () => {

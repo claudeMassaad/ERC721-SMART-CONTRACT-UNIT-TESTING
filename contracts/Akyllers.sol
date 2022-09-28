@@ -1837,13 +1837,12 @@ library SafeERC20 {
     // SETTERS DONE BY OWNER ONLY
 
     function setWhitelistPhase(bytes32 _merkleRoot, uint256 _maxperaddress, uint256 _supplyLimit, uint256 _price) external onlyOwner {
-        require(_supplyLimit<=maxSupply);
         setMerkleRoot(_merkleRoot);           
         setMaxPerAddress(_maxperaddress);
         setPaused(true);
         setCost(_price);
         phaseTag +=1; // set a new phase on every call
-        supplyLimit +=_supplyLimit; // set the total supply limit on the whitelist phase
+        setSupplyLimit(_supplyLimit); // set the total supply limit on the whitelist phase
     }
 
     
@@ -1855,6 +1854,7 @@ library SafeERC20 {
         whitelistMintEnabled= false; 
     }
     function setSupplyLimit(uint256 _supplyLimit) public onlyOwner nonReentrant{
+        require(_supplyLimit<=maxSupply, "The supply limit you're setting is GREATER THAN the max supply");
         supplyLimit = _supplyLimit;
     }
     function setCost(uint256 _cost) public onlyOwner nonReentrant {
